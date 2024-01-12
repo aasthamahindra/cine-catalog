@@ -8,14 +8,16 @@ body {
 
 .topnav {
   overflow: hidden;
-  height: 100px;
+  justify-content: space-between;
+  height: 80px;
+  width: 100%;
   display: flex;
   background-image: linear-gradient(to right top, #000000, #0c0b0b, #0c0b0b, #141313, #141313, #141313,#1b1919, #1b1919, #1b1919, #211f1f, #211f1f, #262423, #2c2828, #312d2c, #363130);
 }
 
 .topnav a {
   text-decoration: none;
-  text-align: center;
+  text-align: auto;
   margin: auto;
   border-radius: 5px;
   color: #ddd;
@@ -48,10 +50,9 @@ body {
   display: inline-block;
   position: relative;
   width: 250px;
-  height: 400px;
+  height: 300px;
   margin: 30px;
   color: #ffffff;
-  background: url('https://assets-prd.ignimgs.com/2023/02/08/jw4-2025x3000-online-character-1sht-keanu-v187-1675886090936.jpg?fit=bounds&width=1280&height=720') center/cover no-repeat;
   filter: brightness(0.9);
   transition: 0.1s ease-in-out;
 }
@@ -59,8 +60,8 @@ body {
 /* On mouse-over, add a deeper shadow */
 .card:hover {
   box-shadow:   0px 2px 7px 1px #ddd;
+  position: relative;
 }
-
 /* The movie name inside the card container */
 .container {
   filter: brightness(2);
@@ -71,9 +72,20 @@ body {
   background-color: rgba(21, 20, 20, 0.664);
 }
 
+.container h3 {
+  margin: 0px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+
+.container h5 {
+  margin: 0px;
+  margin-bottom: 10px;
+}
+
 .loading, .error, .no-movies {
   text-align: center;
-  color: #000000;
+  color: #fff;
   font-size: 23px;
   margin: 150px;
 }

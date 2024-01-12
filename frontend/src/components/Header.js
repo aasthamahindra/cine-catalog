@@ -11,7 +11,7 @@ const Header = () => {
     return ( 
         <div className='topnav'>
             <Link smooth to='/'> 
-                <Clapperboard color='#ffffff' size={48} style={{verticalAlign: 'text-bottom'}}/> Cine-Catalog 
+                <Clapperboard color='#ffffff' size={36} style={{verticalAlign: 'text-bottom'}}/> Cine-Catalog 
             </Link>
             {isAddMovieRoute ? (
                 <Link smooth to='/' className='add-button'>

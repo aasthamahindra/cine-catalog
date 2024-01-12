@@ -1,21 +1,33 @@
 import React from 'react';
 import SingleMovie from '../components/SingleMovie';
+import { gql, useQuery } from '@apollo/client';
 
-const movies = [
-    {name: 'Vikram Veda', genre: 'Crime', year: 2023},
-    {name: 'Gumraah', genre: 'Action', year: 2023},
-    {name: 'Cirkus', genre: 'Comedy', year: 2022},
-    {name: 'Gehraiyaan', genre: 'Romantic', year: 2022 },
-];
+const getMovies = gql`
+    query GetMovies {
+        getMovies {
+            name
+            genre
+            year
+            image
+        }
+    }
+`;
 
 const Movies = () => {
+    const { loading, error, data } = useQuery(getMovies);
+
+    if (loading) return <p className='loading'>We are loading the movies...</p>;
+    if (error) return <p className='error'>Cannot fetch the movies!: {error.message}</p>;
+    if (data.getMovies.length === 0) return <p className='no-movies'>No movies found!</p>
+
     return ( 
         <div className='movies'>
-            {movies.map((movie) => {
+            {data.getMovies.map((movie) => {
                 return <SingleMovie
                     movieName={movie.name}
                     movieGenre={movie.genre}
                     movieYear={movie.year}
+                    movieImage={movie.image}
                 />
             })}
         </div>
