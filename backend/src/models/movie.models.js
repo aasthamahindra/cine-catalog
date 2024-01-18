@@ -8,8 +8,8 @@ const movieData = new mongoose.Schema({
     image: String,
 });
 
-const model = connection.model('movies', movieData);
+const movieModel = connection.model('movies', movieData);
 
 module.exports = {
-    model
+    movieModel
 }
