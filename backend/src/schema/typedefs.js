@@ -6,12 +6,17 @@ const typeDefs = gql`
     }
     type Mutation {
         addMovie(name: String!, genre: String!, image: String!, year: String): Movie
+        login(email: String!, password: String!): Tokens
     }
     type Movie {
         name: String,
         genre: String,
         year: String,
         image: String
+    }
+    type Tokens {
+        accessToken: String
+        refreshToken: String
     }
 `;
 
