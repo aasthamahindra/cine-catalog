@@ -13,6 +13,8 @@ const getMovies = gql`
     }
 `;
 
+console.log(getMovies);
+
 const Movies = () => {
     const { loading, error, data } = useQuery(getMovies);
 

@@ -5,6 +5,7 @@ const { typeDefs } = require('./schema/typedefs');
 const { resolvers } = require('./resolvers/resolvers');
 const app = express();
 const { verifyToken } = require('./authorization/jwt.verify');
+const cors = require('cors');
 
 const startServer = async () => {
     const server = new ApolloServer({
@@ -34,6 +35,8 @@ const startServer = async () => {
     });
     
     await server.start();
+
+    app.use(cors());
 
     // applyMiddleware() apply to be a middleware in Express to setup route
     server.applyMiddleware({ app });
