@@ -21,17 +21,8 @@ const resolvers = {
         }
     },
     Mutation: {
-        addMovie: async (parent, args, context, info) => {
+        addMovie: async (parent, args) => {
             const { name, genre, year, image} = args;
-
-            const { id } = context.user;
-            const user = await userModel.findOne({ _id: Object(id) });
-            const role = user.role;
-
-            if (role !== "admin" && role !== "editor")
-            return {
-                error: "You have no permission to perform this action",
-            };
 
             let movies = new movieModel({
                 name,
